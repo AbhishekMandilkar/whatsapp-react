@@ -1,0 +1,31 @@
+.login {
+  display: grid;
+  place-items: center;
+  background-color: rgb(231, 244, 253);
+  height: 100vh;
+  width: 100vw;
+}
+.login-container {
+  padding: 100px;
+  text-align: center;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.login-container > img {
+  object-fit: contain;
+  height: 120px;
+  margin-bottom: 30px;
+}
+.login-container > button {
+  margin-top: 50px;
+  text-transform: inherit !important;
+  background-color: #0a8d48 !important;
+  color: #fff !important;
+}
+
+.login-text {
+  font-weight: bold;
+  font-size: 32px;
+}
