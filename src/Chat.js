@@ -33,7 +33,7 @@ function Chat() {
         .collection("messages")
         .orderBy("timestamp", "asc")
         .onSnapshot((snapshot) =>
-          setMessage(snapshot.docs.map((doc) => doc.data()) ?? [{}])
+          setMessage(snapshot.docs.map((doc) => doc.data()))
         );
     }
   }, [roomId]);
@@ -77,10 +77,14 @@ function Chat() {
       </div>
       <div className="chat-body">
         {message.map((message) => (
-          <p className={`chat-msg ${true && "chat-msg-rev"}`}>
+          <p
+            className={`chat-msg ${
+              message.name === user.displayName && `chat-msg-rev`
+            }`}
+          >
             <span className="chat-name">{message.name}</span>
             {message.message}
-            <span className="chat-timestamp">
+            <span className="chat-timestamp ">
               {new Date(message.timestamp?.toDate()).toUTCString()}
             </span>
           </p>
@@ -92,7 +96,7 @@ function Chat() {
           <input
             value={input}
             onChange={(e) => {
-              setMessage(e.target.value);
+              setInput(e.target.value);
             }}
             type="text"
             placeholder="Type a message"
